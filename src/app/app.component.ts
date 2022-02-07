@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   taskName: string;
   maxRepeatCount: number;
   currentTask: Task;
+  isLoading: boolean = false;
 
   constructor(private db: RepositoryService) {
    
@@ -25,7 +26,9 @@ export class AppComponent implements OnInit {
   }
 
   async setCurrentTask() {
+    this.isLoading = true;
     this.currentTask = (await this.db.getCurrentTask()) as Task;
+    this.isLoading = false;
   }
 
   async addNewTask() {

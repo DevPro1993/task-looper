@@ -16,7 +16,7 @@
 
   <div *ngIf="!addNewTaskActive" class="h1 h-100 w-100 d-flex flex-column justify-content-center align-items-center">
     <span>{{ currentTask?.taskName }}</span>
-    <span *ngIf="!currentTask" class="text-muted">Add new task to start</span>
+    <span *ngIf="!currentTask && !isLoading" class="text-muted">Add new task to start</span>
     <button class="mt-4 btn btn-outline-primary" (click)="markAsComplete()" *ngIf="currentTask">Mark as complete</button>
   </div>
 
